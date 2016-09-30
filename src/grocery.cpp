@@ -15,13 +15,12 @@ Grocery::Grocery() : _size(0)
 
 Grocery::~Grocery()
 {
-	free(_items);
+	delete _items;
 }
 
 void Grocery::addItem(char* name, double price, int quantity)
 {
-	_items[_size] = Grocery_Item(name, price, quantity);
-	
+	_items[_size] = Grocery_Item(name, price, quantity);	
 	_size++;
 }
 

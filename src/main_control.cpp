@@ -52,8 +52,8 @@ void Main_Control::execCommand(char* command)
 {
 	//TODO: Create a parsing class to handle this
 	//This is a terrible hack
-	char* name = new char(NAME_LEN);
-	char* command_name = new char(NAME_LEN);
+	char name[NAME_LEN];
+	char command_name[NAME_LEN];
 	float price = -1.0;
 	int quantity = 1;
 
@@ -61,8 +61,8 @@ void Main_Control::execCommand(char* command)
 
 	int argc = split(command, argv);
 
-	command_name = argv[0];
-	name = argv[1];
+	strcpy(command_name, argv[0]);
+	strcpy(name,argv[1]);
 	for (int i = 2; i < argc; ++i)
 	{
 		if (!strcmp(argv[i], "-q") && i != argc - 1) quantity = atoi(argv[i + 1]);

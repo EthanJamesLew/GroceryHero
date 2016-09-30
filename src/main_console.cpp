@@ -14,7 +14,7 @@ Main_Console::Main_Console()
 
 Main_Console::~Main_Console()
 {
-	free(_grocery);
+	delete _grocery;
 }
 
 void Main_Console::clearConsole()
