@@ -1,0 +1,22 @@
+   _____                               
+  / ____|                              
+ | |  __ _ __ ___   ___ ___ _ __ _   _ 
+ | | |_ | '__/ _ \ / __/ _ \ '__| | | |    Created by Ethan Lew
+ | |__| | | | (_) | (_|  __/ |  | |_| |    CS 162
+  \_____| |  \ __/ \___\___|_|   \__, |    Project 1
+        | |  | |                  __/ |
+        | |__| | ___ _ __ ___    |___/ 
+        |  __  |/ _ \ '__/ _ \         
+        | |  | |  __/ | | (_) |        
+        |_|  |_|\___|_|  \___/         
+                                     
+"add <name> <price> -q <quantity>" will add item to list
+
+"edit <name> -p <newprice> -q <new quantity>" will edit 
+an item's price and/or quantity
+
+"delete <name>" will delete an item
+
+"ls" will list the items you have added
+
+"session" will enter an interactive item creation session
