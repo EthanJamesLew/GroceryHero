@@ -9,7 +9,6 @@ void remove_element(Grocery_Item *array, int index, int array_length)
 
 Grocery::Grocery() : _size(0)
 {
-	_items = new Grocery_Item();
 }
 
 
@@ -18,7 +17,7 @@ Grocery::~Grocery()
 	delete _items;
 }
 
-void Grocery::addItem(char* name, double price, int quantity)
+void Grocery::addItem(char* name, double price, double quantity)
 {
 	_items[_size] = Grocery_Item(name, price, quantity);	
 	_size++;
@@ -47,7 +46,7 @@ void Grocery::deleteItem(char* name)
 	}
 }
 
-void Grocery::editItem(char* name, double price, int quantity)
+void Grocery::editItem(char* name, double price, double quantity)
 {
 	for (int i = 0; i < _size; i++)
 	{
