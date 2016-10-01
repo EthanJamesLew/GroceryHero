@@ -16,8 +16,8 @@ private:
 	bool _check(char* name);
 	void _processTrigger(char* ops, void(*f)(char*, double, int));
 	void _ls();
-	void _add(char* name, double price, int quantity=1);
-	void _edit(char* name, double price, int quantity=1);
+	void _add(char* name, double price, double quantity = 1.0);
+	void _edit(char* name, double price, double quantity = 1.0);
 	void _delete(char* name);
 	Grocery* _grocery;
 };
