@@ -14,7 +14,6 @@ Grocery::Grocery() : _size(0)
 
 Grocery::~Grocery()
 {
-	delete _items;
 }
 
 void Grocery::addItem(char* name, double price, double quantity)
