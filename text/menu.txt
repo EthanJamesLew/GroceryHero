@@ -19,4 +19,4 @@ an item's price and/or quantity
 
 "ls" will list the items you have added
 
-"session" will enter an interactive item creation session
+
