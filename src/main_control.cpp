@@ -55,19 +55,19 @@ void Main_Control::execCommand(char* command)
 	char name[NAME_LEN];
 	char command_name[NAME_LEN];
 	float price = -1.0;
-	int quantity = 1;
+	float quantity = 1;
 
 	char* argv[10];
 
 	int argc = split(command, argv);
 
 	strcpy(command_name, argv[0]);
-	strcpy(name,argv[1]);
+	if (argc > 1) strcpy(name,argv[1]);
 	for (int i = 2; i < argc; ++i)
 	{
-		if (!strcmp(argv[i], "-q") && i != argc - 1) quantity = atoi(argv[i + 1]);
-		if (isnumber(argv[i]) && strcmp(argv[i - 1], "-q")) price = atof(argv[i]);
-
+		if (!strcmp(argv[i], "-q") && i != argc - 1) quantity = atof(argv[i + 1]);
+		else if (isnumber(argv[i]) && strcmp(argv[i - 1], "-q")) price = atof(argv[i]);
+		else if (price == -1.0 && strcmp(argv[i-1], "-q")) { strcat(name, " "); strcat(name, argv[i]); }
 	}
 	//Check inputs
 	if (!(!strcmp(command_name, "add") | !strcmp(command_name, "a") | !strcmp(command_name, "edit") | !strcmp(command_name, "e") | !strcmp(command_name, "delete") | !strcmp(command_name, "d") | !strcmp(command_name, "ls") | !strcmp(command_name, "l"))) { std::cout << command_name << " not found." << std::endl; return; }
@@ -93,7 +93,7 @@ void Main_Control::_ls()
 	std::cout << std::fixed << "Your current total is $" << _grocery->getTotal() << std::endl;
 }
 
-void Main_Control::_add(char* name, double price, int quantity)
+void Main_Control::_add(char* name, double price, double quantity)
 {
 	if (!_check(name)) { std::cout << name << " already exists!"<<std::endl; return; }
 	_grocery->addItem(name, price, quantity);
@@ -101,7 +101,7 @@ void Main_Control::_add(char* name, double price, int quantity)
 	std::cout << std::fixed << "Added item " << name << ". Your current total is $" << _grocery->getTotal() << std::endl;
 }
 
-void Main_Control::_edit(char* name, double price, int quantity)
+void Main_Control::_edit(char* name, double price, double quantity)
 {
 	if (_check(name)){ std::cout <<"Could not find " << name<< std::endl; return; }
 	_grocery->editItem(name, price, quantity);
