@@ -18,5 +18,3 @@ an item's price and/or quantity
 "delete <name>" will delete an item
 
 "ls" will list the items you have added
-
-
