@@ -14,9 +14,9 @@ struct Grocery_Item
 
 	char name[NAME_LEN];
 	double price;
-	int quantity;
+	double quantity;
 
-	Grocery_Item(char* na, double price, int quantity) : price(price), quantity(quantity){ strcpy(name,na); }
+	Grocery_Item(char* na, double price, double quantity) : price(price), quantity(quantity){ strcpy(name,na); }
 
 	Grocery_Item(){ }
 
