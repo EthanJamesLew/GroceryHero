@@ -33,7 +33,7 @@ void Main_Console::renderMain()
 		exit(1);
 	}
 
-	do{std::cout << (char)infile1.get();}while ((infile1.good()));
+	do{if(infile1.peek() != EOF) std::cout << (char)infile1.get();}while ((infile1.good()));
 }
 
 void Main_Console::setGrocery(Grocery* grocery)
