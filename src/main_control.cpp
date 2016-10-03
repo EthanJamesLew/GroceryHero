@@ -99,7 +99,7 @@ void Main_Control::_add(char* name, double price, double quantity)
 	if (!_check(name)) { std::cout << name << " already exists!"<<std::endl; return; }
 	_grocery->addItem(name, price, quantity);
 	std::cout.setf(ios::fixed, ios::floatfield);
-	std::setf(ios::showpoint);
+	std::cout.setf(ios::showpoint);
 	std::cout.precision(2);
 	std::cout << std::fixed << "Added item " << name << ". Your current total is $" << _grocery->getTotal() << std::endl;
 }
