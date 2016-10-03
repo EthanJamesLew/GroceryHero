@@ -16,7 +16,8 @@ struct Grocery_Item
 	double price;
 	double quantity;
 
-	Grocery_Item(char* na, double price, double quantity) : price(price), quantity(quantity){ strcpy(name,na); }
+	Grocery_Item(char* na, double price, double quantity) : price(price), quantity(quantity)
+	{ strcpy(name,na); }
 
 	Grocery_Item(){ }
 
