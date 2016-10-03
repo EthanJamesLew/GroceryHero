@@ -28,8 +28,8 @@ struct Grocery_Item
 
 	friend std::ostream & operator << (std::ostream &os, Grocery_Item it)
 	{
-		os.setf(ios::fixed, ios::floatfield);
-		os.setf(ios::showpoint);
+		os.setf(std::ios::fixed, std::ios::floatfield);
+		os.setf(std::ios::showpoint);
 		os.precision(2);
 		os << it.name << "	$" <<std::fixed<< it.price << "	#" << it.quantity;
 		return os;
