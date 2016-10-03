@@ -5,40 +5,40 @@
 #define NAME_LEN 64
 
 int split(char *str, char *arr[10]){
-	int beginIndex = 0;
-	int endIndex;
-	int maxWords = 10;
-	int wordCnt = 0;
+	int startIdx = 0;
+	int endIdx;
+	int max = 10;
+	int count = 0;
 
 	while (true){
-		while (isspace(str[beginIndex])){
-			++beginIndex;
+		while (isspace(str[startIdx])){
+			++startIdx;
 		}
-		if (str[beginIndex] == '\0')
+		if (str[startIdx] == '\0')
 			break;
-		endIndex = beginIndex;
-		while (str[endIndex] && !isspace(str[endIndex])){
-			++endIndex;
+		endIdx = startIdx;
+		while (str[endIdx] && !isspace(str[endIdx])){
+			++endIdx;
 		}
-		int len = endIndex - beginIndex;
+		int len = endIdx - startIdx;
 		char *tmp = (char*)calloc(len + 1, sizeof(char));
-		memcpy(tmp, &str[beginIndex], len);
-		arr[wordCnt++] = tmp;
-		beginIndex = endIndex;
-		if (wordCnt == maxWords)
+		memcpy(tmp, &str[startIdx], len);
+		arr[count++] = tmp;
+		startIdx = endIdx;
+		if (count == max)
 			break;
 	}
-	return wordCnt;
+	return count;
 }
 
 int isnumber(const char *s)
 {
-	char *ep = NULL;
-	double f = strtod(s, &ep);
+	char *castTest = NULL;
+	double f = strtod(s, &castTest);
 	f++;
 
-	if (!ep || *ep)
-		return false;  // has non-floating digits after number, if any
+	if (!castTest || *castTest)
+		return false; 
 
 	return true;
 }
